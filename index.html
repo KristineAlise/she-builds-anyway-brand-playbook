@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>She Builds Anyway — Your Complete Brand Playbook</title>
+<style>
+  :root {
+    --pacific: #3B7A9A;
+    --pacific-dark: #2A5A75;
+    --pacific-deeper: #1F4458;
+    --coral: #E89B8A;
+    --coral-deep: #D17F6E;
+    --cream: #FDFAF3;
+    --blush: #F5C2C0;
+    --plum: #4A3548;
+    --gold: #E0B870;
+    --soft-cream: #FFFEFB;
+    --pacific-light: #B0CCD9;
+    --border: #E0D5C5;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+    color: var(--plum);
+    background: var(--soft-cream);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* TOP NAV BAR (the "Claude" header equivalent) */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    background: var(--soft-cream);
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar-logo {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--pacific);
+  }
+  .topbar-meta { color: #999; font-size: 12px; }
+  .topbar-actions { color: #888; font-size: 12px; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--pacific-deeper) 0%, var(--pacific) 100%);
+    color: var(--cream);
+    padding: 60px 32px 72px 32px;
+    text-align: center;
+  }
+  .hero-pill {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--cream);
+    padding: 6px 18px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Georgia', serif;
+    font-size: 56px;
+    margin: 0 0 18px 0;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+  .hero-subtitle {
+    font-size: 19px;
+    color: rgba(255,255,255,0.85);
+    max-width: 640px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  /* CTA BAR (Coral) */
+  .cta-bar {
+    background: var(--coral);
+    color: white;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .cta-bar .cta-emoji { font-size: 20px; }
+  .cta-bar .cta-text { color: white; }
+  .cta-bar .cta-btn {
+    background: white;
+    color: var(--coral-deep);
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  /* MEMBERSHIP/INFO BAR (cream — original look) */
+  .info-bar {
+    background: var(--cream);
+    padding: 16px 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .info-bar-text { font-size: 14px; color: var(--plum); }
+  .info-bar-text strong { color: var(--pacific); }
+  .info-bar-btn {
+    background: var(--pacific-deeper);
+    color: var(--cream);
+    padding: 10px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* TABS */
+  .tabs-wrap {
+    background: var(--soft-cream);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    overflow-x: auto;
+  }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .tab {
+    padding: 18px 16px;
+    border: none;
+    background: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--plum);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .tab:hover { color: var(--pacific); }
+  .tab.active {
+    color: var(--pacific);
+    font-weight: 700;
+    border-bottom-color: var(--coral);
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px 80px 32px;
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .section-title {
+    font-family: 'Georgia', serif;
+    color: var(--pacific);
+    font-size: 36px;
+    margin: 0 0 12px 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 40 40'><g fill='none' stroke='%23E89B8A' stroke-width='2'><ellipse cx='0' cy='-10' rx='5' ry='9'/><ellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(72)'/><ellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(144)'/><ellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(216)'/><ellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(288)'/></g><circle cx='0' cy='0' r='4' fill='none' stroke='%23E0B870' stroke-width='2'/></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  /* DECORATIVE FLOWER DIVIDER */
+  .flower-divider {
+    text-align: center;
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .flower-divider::before,
+  .flower-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: var(--coral);
+    opacity: 0.4;
+  }
+  .flower-divider .bloom {
+    width: 28px;
+    height: 28px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -20 40 40'><g fill='none' stroke='%23E89B8A' stroke-width='2'><ellipse cx='0' cy='-10' rx='5' ry='9'/><ellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(72)'/><ellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(144)'/><ellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(216)'/><ellipse cx='0' cy='-10' rx='5' ry='9' transform='rotate(288)'/></g><circle cx='0' cy='0' r='4' fill='none' stroke='%23E0B870' stroke-width='2'/></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .section-intro {
+    font-size: 17px;
+    color: var(--plum);
+    margin: 0 0 32px 0;
+    max-width: 720px;
+  }
+
+  h3 {
+    font-family: 'Georgia', serif;
+    color: var(--pacific);
+    font-size: 22px;
+    margin: 32px 0 12px 0;
+  }
+  h4 {
+    color: var(--pacific);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 24px 0 10px 0;
+  }
+
+  /* DEFINITION CARD (Dark Pacific Blue with soft Honey Gold heading) */
+  .def-card {
+    background: linear-gradient(135deg, var(--pacific-deeper) 0%, var(--pacific) 100%);
+    color: var(--cream);
+    padding: 32px 36px;
+    border-radius: 14px;
+    margin: 24px 0;
+    position: relative;
+    box-shadow: 0 6px 24px rgba(59,122,154,0.15);
+  }
+  .def-card::after {
+    content: '💡';
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    font-size: 24px;
+    opacity: 0.3;
+  }
+  .def-card-label {
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .def-card-text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--cream);
+    margin: 0;
+  }
+  .def-card-text strong { color: var(--coral); font-weight: 700; }
+
+  /* FLOW DIAGRAM (boxes + arrows like reference) */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 32px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid var(--pacific);
+    border-radius: 10px;
+    padding: 16px 18px;
+    min-width: 140px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--plum);
+    line-height: 1.4;
+  }
+  .flow-arrow {
+    color: var(--coral);
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  /* VIBE CARDS (for taglines, names, etc.) */
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 16px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .card.coral-accent { border-left: 4px solid var(--coral); }
+  .card.pacific-accent { border-left: 4px solid var(--pacific); }
+  .card.gold-accent { border-left: 4px solid var(--gold); }
+
+  .quote-box {
+    background: var(--cream);
+    border-left: 4px solid var(--pacific);
+    padding: 20px 24px;
+    margin: 14px 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--plum);
+    border-radius: 0 8px 8px 0;
+  }
+  .quote-box.coral { border-left-color: var(--coral); }
+  .quote-box.gold { border-left-color: var(--gold); }
+
+  /* TAGLINE STACK */
+  .tagline-stack {
+    background: white;
+    padding: 32px;
+    border-radius: 14px;
+    border: 2px solid var(--border);
+    text-align: center;
+    margin: 24px 0;
+  }
+  .tagline-stack .name {
+    font-family: 'Georgia', serif;
+    font-size: 38px;
+    color: var(--pacific);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .tagline-stack .tag1 {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--coral-deep);
+    margin: 6px 0;
+  }
+  .tagline-stack .tag2 {
+    font-style: italic;
+    font-size: 16px;
+    color: var(--plum);
+    margin: 6px 0;
+  }
+
+  /* COLOR SWATCHES */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .swatch {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .swatch-color { height: 80px; }
+  .swatch-info { padding: 12px 14px; }
+  .swatch-name { font-weight: 700; color: var(--plum); font-size: 14px; }
+  .swatch-hex {
+    font-family: 'Monaco', monospace;
+    font-size: 12px;
+    color: #888;
+    margin: 2px 0 4px 0;
+  }
+  .swatch-role { font-size: 11px; color: #777; }
+
+  /* TWO-COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 20px 0;
+  }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+  .do-box, .dont-box {
+    padding: 20px 24px;
+    border-radius: 10px;
+  }
+  .do-box {
+    background: #E6F0F2;
+    border-left: 4px solid var(--pacific);
+  }
+  .dont-box {
+    background: #FCE8E4;
+    border-left: 4px solid var(--coral-deep);
+  }
+  .do-box h4 { color: var(--pacific); margin-top: 0; }
+  .dont-box h4 { color: var(--coral-deep); margin-top: 0; }
+  .do-box ul, .dont-box ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14px;
+  }
+  .do-box li, .dont-box li { margin: 6px 0; }
+
+  /* SIGNATURE LINES */
+  .sig-line {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 12px 18px;
+    margin: 8px 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--plum);
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* ARCH BLOCK */
+  .arch-block {
+    background: var(--pacific-deeper);
+    color: var(--cream);
+    padding: 28px 32px;
+    border-radius: 12px;
+    font-family: 'Monaco', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+  .arch-block .arch-key { color: var(--coral); font-weight: 700; }
+
+  /* KEYWORD CHIPS */
+  .chip-set { margin: 16px 0; }
+  .chip-set-label {
+    font-weight: 700;
+    color: var(--pacific);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: var(--plum);
+  }
+  .chip:hover {
+    background: var(--coral);
+    color: white;
+    border-color: var(--coral);
+  }
+
+  /* STORY CARD (audience thoughts) */
+  .thought-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--coral);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 20px;
+    margin: 8px 0;
+    font-style: italic;
+    color: var(--plum);
+    font-size: 14px;
+  }
+
+  /* LAUNCH SPRINT */
+  .day-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 12px 0;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .day-num {
+    background: var(--pacific);
+    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .day-num.launch { background: var(--coral); }
+  .day-content h4 { margin-top: 0; color: var(--pacific); }
+  .day-content { flex: 1; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--pacific-deeper);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 32px;
+    font-size: 13px;
+    margin-top: 60px;
+  }
+  .footer .brand-line {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--coral);
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  /* PERSONA BADGE */
+  .persona-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 8px;
+  }
+  .persona-mom { background: var(--coral); color: white; }
+  .persona-50 { background: var(--pacific); color: white; }
+
+  @media print {
+    .tab-content { display: block !important; page-break-before: always; }
+    .tabs-wrap, .topbar, .info-bar, .cta-bar { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-logo">She Builds Anyway</span>
+    <span class="topbar-meta">Brand playbook · For Kris &amp; Mary</span>
+  </div>
+  <div class="topbar-actions">📚 Internal use · Updated April 28, 2026</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-pill">YOUR COMPLETE BRAND PLAYBOOK</span>
+  <h1>She Builds Anyway</h1>
+  <p class="hero-subtitle" style="font-family: 'Georgia', serif; font-style: italic; font-size: 24px; color: var(--coral); margin-bottom: 8px;">She stopped asking for permission.</p>
+  <p class="hero-subtitle" style="font-size: 17px;">Beginner-friendly AI for women starting over.</p>
+</div>
+
+<!-- CTA BAR -->
+<div class="cta-bar">
+  <span class="cta-emoji">✨</span>
+  <span class="cta-text">She didn't wait for perfect. She built anyway.</span>
+</div>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  <div class="info-bar-text"><strong>Want to keep building?</strong> The She Builds Anyway Community folder has the full Copy Bank, Brand Architecture doc, and Launch Checklist for deeper reference.</div>
+  <a href="#" class="info-bar-btn">Open the Folder →</a>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab active" data-target="brand">Brand</button>
+    <button class="tab" data-target="voice">Voice &amp; Tone</button>
+    <button class="tab" data-target="colors">Colors</button>
+    <button class="tab" data-target="architecture">Architecture</button>
+    <button class="tab" data-target="categories">Post Categories</button>
+    <button class="tab" data-target="taglines">Taglines</button>
+    <button class="tab" data-target="copybank">Copy Bank</button>
+    <button class="tab" data-target="audience">Audience</button>
+    <button class="tab" data-target="launch">Launch</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- TAB: BRAND -->
+  <div class="tab-content active" id="brand">
+    <h2 class="section-title">Brand</h2>
+    <p class="section-intro">The community that exists for the woman building something while life is on fire. Two doors. One room. Same destination.</p>
+
+    <div class="def-card">
+      <div class="def-card-label">WHAT SHE BUILDS ANYWAY IS</div>
+      <p class="def-card-text">A free Skool community for women learning AI from scratch — whether they've got 45 minutes after bedtime or a quiet morning at 58. <strong>Beginner-friendly. Judgment-free. No catching up required.</strong></p>
+    </div>
+
+    <h3>The big aha — AI gives back stolen hours</h3>
+    <div class="quote-box coral">Both audiences are short on the same thing: TIME. AI's actual superpower for beginners is that it <strong>gives time back</strong> — a personal assistant that doesn't sleep, doesn't get tired, doesn't judge.</div>
+    <p style="font-size: 17px;"><strong>The brand promise:</strong> AI is the time-multiplier for women who've never had enough.</p>
+    <div class="quote-box gold">It's not "learn AI." It's "AI gives you your hours back so you can finally build the thing." That's a totally different sales pitch — and it's a thousand times more emotional than what most AI-for-beginners communities lead with.</div>
+
+<div class="flower-divider"><span class="bloom"></span></div>
+
+    <h3>Same destination, two doors</h3>
+    <div class="flow">
+      <div class="flow-box">Mom's wound:<br><em>"I have no time."</em></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-box" style="border-color: var(--coral); background: #FCE8E4;">Stolen Hours<br>(Mary's track)</div>
+      <span class="flow-arrow">↘</span>
+      <div class="flow-box" style="background: var(--pacific); color: white; border-color: var(--pacific);">She Builds<br>Anyway</div>
+      <span class="flow-arrow">↗</span>
+      <div class="flow-box" style="border-color: var(--coral); background: #FCE8E4;">Reclaimed Hours<br>(Kris's track)</div>
+      <span class="flow-arrow">←</span>
+      <div class="flow-box">50+ wound:<br><em>"I'm out of time."</em></div>
+    </div>
+
+    <h3>The three things every piece of writing must do</h3>
+    <div class="flow">
+      <div class="flow-box">1. See her</div>
+      <span class="flow-arrow">+</span>
+      <div class="flow-box">2. Permission her</div>
+      <span class="flow-arrow">+</span>
+      <div class="flow-box">3. Land her</div>
+    </div>
+    <p style="text-align: center; font-style: italic; color: #777; margin-top: 8px;">Make her feel seen, allowed, and softly held.</p>
+  </div>
+
+  <!-- TAB: VOICE -->
+  <div class="tab-content" id="voice">
+    <h2 class="section-title">Voice &amp; Tone</h2>
+    <p class="section-intro">How the brand THINKS, SPEAKS, and LEADS. Permission-first, action-second, never coach-on-stage.</p>
+
+    <div class="def-card">
+      <div class="def-card-label">THE VOICE FORMULA</div>
+      <p class="def-card-text">Speak directly to HER. Mirror her exact internal thoughts. Use forward-pointing language (becoming, building, beginning). Celebrate her arrival, not her struggle. Hand her permission, generously. End with action, not just understanding.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="do-box">
+        <h4>✓ Always</h4>
+        <ul>
+          <li>Speak directly to HER (not "people" or "they")</li>
+          <li>Mirror her exact internal thoughts</li>
+          <li>Use forward-pointing language</li>
+          <li>Celebrate her arrival, not her struggle</li>
+          <li>Hand her permission, generously</li>
+          <li>End with action, not understanding alone</li>
+        </ul>
+      </div>
+      <div class="dont-box">
+        <h4>✗ Avoid</h4>
+        <ul>
+          <li>Coach-on-stage language ("I want you to know...")</li>
+          <li>Soft-pedaling or coddling</li>
+          <li>Empty motivation without action</li>
+          <li>Words: still, finally, despite, push through</li>
+          <li>Hustle/grit energy (we're warm, not white-knuckled)</li>
+          <li>Pure black text or pure white backgrounds</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>⚠️ The "Anyway" Rule — Critical Voice Craft</h3>
+    <div class="card coral-accent">
+      <p>The word "anyway" can read TWO ways:</p>
+      <p>✅ <strong style="color: var(--pacific);">Defiant / empowered:</strong> <em>"She builds ANYWAY"</em> — confident shrug</p>
+      <p>❌ <strong style="color: var(--coral-deep);">Resigned / exhausted:</strong> <em>"She builds anyway, *sigh*"</em> — grit-teeth tired</p>
+      <p>For our exhausted audience, brand voice MUST tilt every "anyway" toward the empowered read by making EVERY surrounding word forward-pointing.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="do-box">
+        <h4>✓ Use (forward-pointing)</h4>
+        <ul>
+          <li><em>"You're here. That's the brave part."</em></li>
+          <li><em>"AI for women becoming."</em></li>
+          <li>Words: now, yes, here, today, arrived</li>
+          <li>Celebrate ARRIVAL and POSSIBILITY</li>
+        </ul>
+      </div>
+      <div class="dont-box">
+        <h4>✗ Avoid (backward-pointing)</h4>
+        <ul>
+          <li><em>"I know you're tired."</em></li>
+          <li><em>"AI for women who keep going despite everything."</em></li>
+          <li>Words: still, finally, despite, even, push through</li>
+          <li>Don't dwell on STRUGGLE</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>The 3-Beat Formula (from Foxy AI Ladies — applies here too)</h3>
+    <div class="flow">
+      <div class="flow-box">1. Hook<br><span style="font-size:11px; color:#888;">Her exact thought</span></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-box">2. Truth<br><span style="font-size:11px; color:#888;">Sylvie / the calm</span></div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-box">3. Push<br><span style="font-size:11px; color:#888;">Foxy / the move</span></div>
+    </div>
+    <div class="quote-box coral"><strong>Example:</strong> "Who do I think I am to post this?" → "Every woman thinks that before she starts." → "Post anyway."</div>
+  </div>
+
+  <!-- TAB: COLORS -->
+  <div class="tab-content" id="colors">
+    <h2 class="section-title">Colors — Pacific &amp; Coral</h2>
+    <p class="section-intro">The palette that says "calm + warm." Calls every member to a soft landing without losing brand energy.</p>
+
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#3B7A9A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Pacific Blue</div>
+          <div class="swatch-hex">#3B7A9A</div>
+          <div class="swatch-role">Anchor · Logo · Headers</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E89B8A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Coral</div>
+          <div class="swatch-hex">#E89B8A</div>
+          <div class="swatch-role">Buttons · Accents</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FDFAF3;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Cream</div>
+          <div class="swatch-hex">#FDFAF3</div>
+          <div class="swatch-role">Backgrounds</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5C2C0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blush</div>
+          <div class="swatch-hex">#F5C2C0</div>
+          <div class="swatch-role">Soft accents</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#4A3548;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Plum</div>
+          <div class="swatch-hex">#4A3548</div>
+          <div class="swatch-role">Text (NOT black)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E0B870;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Honey Gold</div>
+          <div class="swatch-hex">#E0B870</div>
+          <div class="swatch-role">Celebrations only</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="def-card">
+      <div class="def-card-label">THE 60-30-10 RULE</div>
+      <p class="def-card-text"><strong>60% Cream</strong> backgrounds (the canvas) · <strong>30% Pacific Blue</strong> structural elements · <strong>10% Coral + Blush + Honey Gold</strong> accents. Text is always Deep Plum, never pure black.</p>
+    </div>
+
+    <h3>Where each color lives</h3>
+    <div class="card pacific-accent">
+      <strong>Pacific Blue</strong> — Logo · Section headers · Welcome headlines · Skool community banner · Primary buttons ("Join the Community") · Links · Borders on important cards
+    </div>
+    <div class="card coral-accent">
+      <strong>Coral</strong> — Secondary buttons ("Learn More") · Highlights inside text · Icon accents · Quote borders · Decorative dividers · "Featured" tags
+    </div>
+    <div class="card gold-accent">
+      <strong>Honey Gold</strong> — Use SPARINGLY. Celebration moments ("You did it!") · Achievement badges · Special announcements · Member milestones · Accent strokes on important graphics
+    </div>
+  </div>
+
+  <!-- TAB: ARCHITECTURE -->
+  <div class="tab-content" id="architecture">
+    <h2 class="section-title">Architecture</h2>
+    <p class="section-intro">Two ignition points. One shared room. The cleanest, most scalable community structure for two distinct audiences with one shared journey.</p>
+
+    <div class="def-card">
+      <div class="def-card-label">THE ORGANIZING PRINCIPLE</div>
+      <p class="def-card-text">Same destination, two doors. Each woman enters through her own wound (no time / out of time). Both end up in the same room learning AI together. <strong>Two ignition points. One core. One shared community.</strong></p>
+    </div>
+
+    <div class="arch-block">
+<span class="arch-key">COMMUNITY:</span>    She Builds Anyway
+<span class="arch-key">TAGLINE:</span>      She stopped asking for permission.
+<span class="arch-key">SUBTITLE:</span>     Beginner-friendly AI for women starting over.
+
+  <span class="arch-key">IGNITION POINT 1:</span>   🌙 Stolen Hours (Faith's classroom — Mary's track)
+                For the woman building in 45-minute pockets
+
+  <span class="arch-key">IGNITION POINT 2:</span>   🪞 Reclaimed Hours (Sylvie + Foxy's classroom — Kris's track)
+                For the woman 50+ taking her time back
+
+  <span class="arch-key">CORE:</span>         1. Spark Your Ideas · 2. Find Your People · 3. AI Tool Kit
+                4. Show Up Your Way · 5. Your Brand, Your Rules
+                6. Build Your First Product · 7. Open for Business
+
+  <span class="arch-key">SHARED:</span>       🕯️ New FireStarter · 📣 The Spark Report · 🔥 Light It Up
+                🪵 Fireside Chat · 🆘 Fan My Flame · ⚡ Strike a Match
+                🌙 Midnight Sparks · 🤝 Fuel the Flame
+    </div>
+
+    <h3>The Two Ignition Points</h3>
+    <div class="card coral-accent">
+      <h4 style="color: var(--coral-deep); margin-top: 0;">🌙 STOLEN HOURS — for the mom in stolen hours</h4>
+      <p>Hosted by <strong>Faith</strong> (Mary's avatar). Speaks to the single mom building during nap time, after bedtime, during baths. Voice: real talk, kitchen-table honesty, no-bullshit warmth.</p>
+      <p><strong>Lessons:</strong> Welcome to Stolen Hours · The Stolen Hours System · Building with Bedtime Brain · Mom Guilt and the Business · AI as Your Co-Founder · Walk Through the Shared Door</p>
+    </div>
+    <div class="card pacific-accent">
+      <h4 style="margin-top: 0;">🪞 RECLAIMED HOURS — for the woman 50+ taking her time back</h4>
+      <p>Hosted by <strong>Sylvie + Foxy</strong> (Kris's avatars). Speaks to the woman 50+ who thinks her hours are gone. Voice: Warm Truth + Bold Action — direct, never performative.</p>
+      <p><strong>Lessons:</strong> Welcome to Your Reclaimed Hours · Your Golden Hours (with data) · Tech-Willing Not Tech-Savvy · Your Experience Is the Gold · AI Is Your Secret Weapon · Walk Into the Shared Room</p>
+    </div>
+
+    <h3>Shared Spaces (joint classrooms)</h3>
+    <div class="flow">
+      <div class="flow-box">🕯️ New<br>FireStarter</div>
+      <div class="flow-box">📣 The Spark<br>Report</div>
+      <div class="flow-box">🔥 Light<br>It Up</div>
+      <div class="flow-box">🪵 Fireside<br>Chat</div>
+      <div class="flow-box">🆘 Fan My<br>Flame</div>
+      <div class="flow-box">⚡ Strike<br>a Match</div>
+      <div class="flow-box">🌙 Midnight<br>Sparks</div>
+      <div class="flow-box">🤝 Fuel the<br>Flame</div>
+    </div>
+  </div>
+
+  <!-- TAB: POST CATEGORIES -->
+  <div class="tab-content" id="categories">
+    <h2 class="section-title">Post Categories</h2>
+    <p class="section-intro">All FireStarter. The cottage is the <em>feeling</em> of the space — FireStarter is who she <em>is</em>. Every category name lives in that identity.</p>
+
+    <div class="def-card">
+      <div class="def-card-label">THE THEME</div>
+      <p class="def-card-text">FireStarter language throughout. The cozy cottage vibe comes through in tone and descriptions — not the category names. <strong>Fireside Chat</strong> does double duty: FireStarter words, cottage feeling baked in.</p>
+    </div>
+
+    <div style="margin: 28px 0;">
+      <div class="day-card">
+        <div class="day-num" style="background: var(--coral); font-size: 26px; width: 56px; height: 56px;">🕯️</div>
+        <div class="day-content"><h4>New FireStarter</h4><p>Introductions — new members say hi, share their story, tell us which door they walked through.</p></div>
+      </div>
+      <div class="day-card">
+        <div class="day-num" style="background: var(--pacific); font-size: 26px; width: 56px; height: 56px;">📣</div>
+        <div class="day-content"><h4>The Spark Report</h4><p>Official announcements from Kris + Mary only — new lessons, office hours, community updates.</p></div>
+      </div>
+      <div class="day-card">
+        <div class="day-num" style="background: var(--coral); font-size: 26px; width: 56px; height: 56px;">🔥</div>
+        <div class="day-content"><h4>Light It Up</h4><p>Wins — big or tiny. First post, first sale, first time opening Claude. All of it counts here.</p></div>
+      </div>
+      <div class="day-card">
+        <div class="day-num" style="background: var(--pacific); font-size: 26px; width: 56px; height: 56px;">🪵</div>
+        <div class="day-content"><h4>Fireside Chat</h4><p>Hangout, general chat, random goodness. Pull up a chair. No agenda required.</p></div>
+      </div>
+      <div class="day-card">
+        <div class="day-num" style="background: var(--coral); font-size: 26px; width: 56px; height: 56px;">🆘</div>
+        <div class="day-content"><h4>Fan My Flame</h4><p>Help, questions, stuck moments. Be specific — someone in this room has the answer.</p></div>
+      </div>
+      <div class="day-card">
+        <div class="day-num" style="background: var(--pacific); font-size: 26px; width: 56px; height: 56px;">⚡</div>
+        <div class="day-content"><h4>Strike a Match</h4><p>Tips, tricks, AI hacks, prompts that worked. Share what sparked something for you.</p></div>
+      </div>
+      <div class="day-card">
+        <div class="day-num" style="background: var(--coral); font-size: 26px; width: 56px; height: 56px;">🌙</div>
+        <div class="day-content"><h4>Midnight Sparks</h4><p>After-hours progress — built after bedtime, during nap time, in the in-between. Show us what you made.</p></div>
+      </div>
+      <div class="day-card">
+        <div class="day-num" style="background: var(--pacific); font-size: 26px; width: 56px; height: 56px;">🤝</div>
+        <div class="day-content"><h4>Fuel the Flame</h4><p>Peer support, encouragement, "me too" moments. Add to someone else's fire.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: TAGLINES -->
+  <div class="tab-content" id="taglines">
+    <h2 class="section-title">Taglines — The Layered Stack</h2>
+    <p class="section-intro">Three lengths. Three jobs. Emotional impact at first glance, SEO discoverability under the surface.</p>
+
+    <div class="tagline-stack">
+      <div class="name">She Builds Anyway</div>
+      <div class="tag1">She stopped asking for permission.</div>
+      <div class="tag2">Beginner-friendly AI for women starting over.</div>
+    </div>
+
+    <h3>Where each tagline lives</h3>
+    <div class="card pacific-accent">
+      <h4 style="margin-top: 0;">1. Hero Banner (emotional)</h4>
+      <div class="quote-box">She stopped asking for permission.</div>
+      <p style="font-size:14px; color:#777;"><em>The story of every member in 5 words. "She" refrain reinforces brand grammar.</em></p>
+    </div>
+    <div class="card coral-accent">
+      <h4 style="margin-top: 0;">2. Hero Subtitle (topic + AI keyword)</h4>
+      <div class="quote-box coral">Beginner-friendly AI for women starting over.</div>
+      <p style="font-size:14px; color:#777;"><em>Topic clarity + SEO keyword. "Starting over" catches divorce, post-50, single-mom, career-change searches.</em></p>
+    </div>
+    <div class="card gold-accent">
+      <h4 style="margin-top: 0;">3. Skool Listing Description (SEO-loaded)</h4>
+      <div class="quote-box gold">AI tools. Stolen hours. Real results. Beginner-friendly AI for women starting over.</div>
+      <p style="font-size:14px; color:#777;"><em>Keyword-stuffed for Skool's discover algorithm. Hits AI · stolen hours · beginner-friendly · women.</em></p>
+    </div>
+
+    <h3>Universal taglines (use anywhere)</h3>
+    <div class="quote-box">"You're not too late. You're not broken. You're not alone."</div>
+    <div class="quote-box coral">"For women building something while life is on fire."</div>
+    <div class="quote-box gold">"Permission granted. Start where you are."</div>
+  </div>
+
+  <!-- TAB: COPY BANK -->
+  <div class="tab-content" id="copybank">
+    <h2 class="section-title">Copy Bank — Recurring Brand Lines</h2>
+    <p class="section-intro">Signature lines that should appear repeatedly across content for brand recognition. Stop writing from scratch — pull from the library.</p>
+
+    <h3>🔁 The "She [verb]" Refrain</h3>
+    <p>The signature pattern. Every line is about HER. Use as social post hooks, lesson openers, quote graphics, email subject lines.</p>
+    <div class="sig-line"><em>She stopped asking for permission.</em> (the banner)</div>
+    <div class="sig-line"><em>She didn't wait.</em></div>
+    <div class="sig-line"><em>She decided.</em></div>
+    <div class="sig-line"><em>She showed up.</em></div>
+    <div class="sig-line"><em>She built it before she felt ready.</em></div>
+    <div class="sig-line"><em>She moved anyway.</em></div>
+    <div class="sig-line"><em>She did it tired.</em></div>
+    <div class="sig-line"><em>She stopped asking.</em></div>
+
+    <h3>🎫 Permission-Themed Lines</h3>
+    <p>Hand her the permission slip. Use in welcome messages, classroom intros, "stuck" responses.</p>
+    <div class="sig-line"><em>Permission was never required.</em></div>
+    <div class="sig-line"><em>No permission needed.</em></div>
+    <div class="sig-line"><em>Done waiting for permission.</em></div>
+    <div class="sig-line"><em>Permission, granted by herself.</em></div>
+    <div class="sig-line"><em>Permission granted. Start where you are.</em></div>
+
+    <h3>🪞 Audience-Mirror Lines</h3>
+    <p>Reflect her exact reality back. Use as homepage copy, opening lines, social captions.</p>
+    <div class="sig-line"><em>Waiting for the right moment was never the plan.</em></div>
+    <div class="sig-line"><em>For the mom who builds after bedtime and the woman who decided it wasn't too late.</em></div>
+    <div class="sig-line"><em>AI gives her hours back.</em></div>
+    <div class="sig-line"><em>You don't need more time. You need AI.</em></div>
+    <div class="sig-line"><em>You're not behind. AI is new for everyone.</em></div>
+
+    <h3>🔑 Reassurance Phrases (counter imposter syndrome)</h3>
+    <div class="sig-line"><em>"If you've never opened ChatGPT, you're in the right place."</em></div>
+    <div class="sig-line"><em>"AI is barely 2 years old. You're not late."</em></div>
+    <div class="sig-line"><em>"Nobody was born knowing this."</em></div>
+    <div class="sig-line"><em>"We start where you are. No experience needed."</em></div>
+    <div class="sig-line"><em>"AI without the tech-bro vibes."</em></div>
+    <div class="sig-line"><em>"You don't need to be techy. Just willing."</em></div>
+
+    <h3>🔍 SEO Keyword Cluster</h3>
+    <div class="chip-set">
+      <span class="chip-set-label">Core Keywords (use most)</span>
+      <div class="chips">
+        <span class="chip">AI for beginners</span>
+        <span class="chip">AI for women</span>
+        <span class="chip">ChatGPT for beginners</span>
+        <span class="chip">AI without overwhelm</span>
+        <span class="chip">beginner-friendly AI</span>
+        <span class="chip">AI for moms</span>
+        <span class="chip">AI for women over 50</span>
+        <span class="chip">AI from scratch</span>
+        <span class="chip">AI gentle start</span>
+      </div>
+    </div>
+    <div class="chip-set">
+      <span class="chip-set-label">Audience Keywords</span>
+      <div class="chips">
+        <span class="chip">women building online</span>
+        <span class="chip">single moms business</span>
+        <span class="chip">reinventing after 50</span>
+        <span class="chip">empty nest reinvention</span>
+        <span class="chip">stolen hours</span>
+        <span class="chip">in-between hours</span>
+        <span class="chip">messy middle</span>
+        <span class="chip">soft start</span>
+        <span class="chip">permission slip</span>
+      </div>
+    </div>
+    <div class="chip-set">
+      <span class="chip-set-label">Pain Keywords</span>
+      <div class="chips">
+        <span class="chip">feel behind on AI</span>
+        <span class="chip">AI overwhelm</span>
+        <span class="chip">AI imposter syndrome</span>
+        <span class="chip">don't know where to start</span>
+        <span class="chip">too late to learn AI</span>
+        <span class="chip">no time to start</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: AUDIENCE -->
+  <div class="tab-content" id="audience">
+    <h2 class="section-title">Audience</h2>
+    <p class="section-intro">Two distinct audiences with one shared emotional truth. Both feel BEHIND, INVISIBLE, and ALONE — and quietly determined to build something while life is on fire.</p>
+
+    <div class="def-card">
+      <div class="def-card-label">SHARED EMOTIONAL TRUTH</div>
+      <p class="def-card-text">Both audiences run on <strong>quiet desperation and stubborn hope</strong>. Both feel alone. Both feel behind. Both need permission. Both need the messy middle to be normalized. Both want to build something while life keeps being life.</p>
+    </div>
+
+    <h3><span class="persona-badge persona-mom">Audience 1</span>Mary's single moms (Faith)</h3>
+    <p style="margin-bottom:8px;"><strong>Wound:</strong> "I have no time."</p>
+    <p>Building during nap time, after bedtime, in stolen minutes. Mom guilt + imposter syndrome on a loop. Fierce determination + quiet desperation.</p>
+    <h4>Her exact thoughts</h4>
+    <div class="thought-card">"I only have nap time and after bedtime."</div>
+    <div class="thought-card">"I feel like I'm failing at everything at once."</div>
+    <div class="thought-card">"I don't know which idea to pick."</div>
+    <div class="thought-card">"I can't afford to fail — my kids are counting on me."</div>
+    <div class="thought-card">"I'm so tired by the time the kids go to bed I can't think straight."</div>
+    <div class="thought-card">"I feel like everyone else has a partner or family to help — I'm doing this completely alone."</div>
+
+    <h3><span class="persona-badge persona-50">Audience 2</span>Kris's women 50+ (Sylvie + Foxy)</h3>
+    <p style="margin-bottom:8px;"><strong>Wound:</strong> "I'm out of time."</p>
+    <p>Empty-nesters, divorced reinventers, retirees. Feeling invisible, behind, "too late." Stubborn hope + quiet determination.</p>
+    <h4>Her exact thoughts</h4>
+    <div class="thought-card">"I don't feel like myself anymore."</div>
+    <div class="thought-card">"I feel overlooked. It's like I disappeared."</div>
+    <div class="thought-card">"At 52, starting over isn't cute. It's not glamorous. It's downright scary."</div>
+    <div class="thought-card">"Is it too late to start over?"</div>
+    <div class="thought-card">"I need permission."</div>
+    <div class="thought-card">"The world is moving on and looks so busy and productive. I am just stuck."</div>
+  </div>
+
+  <!-- TAB: LAUNCH -->
+  <div class="tab-content" id="launch">
+    <h2 class="section-title">7-Day Launch Sprint</h2>
+    <p class="section-intro">Open the doors in a week. MVP launch with 2 ignition points live + 6 "Coming Soon" classrooms. Build the rest from inside.</p>
+
+    <div class="def-card">
+      <div class="def-card-label">SPRINT STRATEGY</div>
+      <p class="def-card-text">Two ignition point classrooms LIVE (3-6 lessons each). Six core classrooms set up as <strong>"Coming Soon" with content drop dates</strong> — anticipation, not embarrassment. Six shared spaces ready with welcome posts pinned. Welcome message polished. Day 7: doors open.</p>
+    </div>
+
+    <div class="day-card">
+      <div class="day-num">1</div>
+      <div class="day-content">
+        <h4>Skool Setup + Brand the Page</h4>
+        <p>Sign up for Skool's paid plan. Claim URL. Add Mary as admin. Design banner + logo + profile in Canva (Pacific Blue + Coral). Plug in all brand copy: name, tagline, listing description, About section.</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">2</div>
+      <div class="day-content">
+        <h4>Build the Structure</h4>
+        <p>Create 2 ignition point classrooms (Stolen Hours + Reclaimed Hours). Create 6 "Coming Soon" core classrooms with content-drop pinned posts. Set classroom navigation order.</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">3</div>
+      <div class="day-content">
+        <h4>Build the 6 Shared Spaces</h4>
+        <p>Daily Check-In · Wins Wall · Stuck? · Tool Talk · Office Hours · Front Porch. Pin welcome post in each. Schedule first 5 daily check-in prompts.</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">4</div>
+      <div class="day-content">
+        <h4>Build Ignition Point Content (Parallel)</h4>
+        <p><strong>Mary:</strong> Lessons 1.1–1.3 (Welcome, Stolen Hours System, Bedtime Brain). <strong>Kris:</strong> Lessons 2.1–2.3 (Welcome, Golden Hours, Tech-Willing).</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">5</div>
+      <div class="day-content">
+        <h4>Finish Ignition Point Lessons</h4>
+        <p><strong>Mary:</strong> Lessons 1.4–1.6 (Mom Guilt, AI as Co-Founder, Bridge). <strong>Kris:</strong> Lessons 2.4–2.6 (Reinventing at 50+, AI as Equalizer, Bridge).</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-num">6</div>
+      <div class="day-content">
+        <h4>Welcome Layer + Polish</h4>
+        <p>Write welcome DM. Pin community guidelines. Test new-member experience as a fake user. Visual polish — every classroom has thumbnail, every shared space has its emoji + welcome post.</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-num launch">7</div>
+      <div class="day-content">
+        <h4>🎉 Soft Launch — Open the Doors</h4>
+        <p>Invite 5–10 close friends each. Send personal warm messages. Be present in the community. Reply to every post and comment. Note anything that breaks. <strong>Celebrate.</strong></p>
+      </div>
+    </div>
+
+    <h3>💰 The Math (Self-Funding Plan)</h3>
+    <div class="card pacific-accent">
+      <p>Skool's paid plan (~$99/mo) is needed for the dual-admin setup. ONE paid classroom selling 3-5 spots/month covers the cost. Future paid offers to consider:</p>
+      <ul>
+        <li><strong>Permission Granted Deep Dive</strong> (Kris's signature) — $47</li>
+        <li><strong>Stolen Hours System Course</strong> (Mary's signature) — $47</li>
+        <li><strong>Build Your First Product in 7 Days</strong> (joint) — $97</li>
+        <li><strong>Inner Circle</strong> (premium tier) — $27/mo</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="brand-line">She didn't wait for perfect. She built anyway.</div>
+  <p>She Builds Anyway · Brand Playbook · Compiled for Kris &amp; Mary · April 28, 2026</p>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
